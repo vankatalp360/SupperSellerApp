@@ -1,0 +1,27 @@
+﻿@page
+@model MyAdsModel
+@{
+    ViewData["Title"] = "My Ads";
+}
+
+<h4>@ViewData["Title"]</h4>
+@Html.Partial("_StatusMessage", Model.StatusMessage)
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Price</th>
+        <th>Condition</th>
+        <th>Viewing</th>
+        <th>PromoEnable</th>
+    </tr>
+    </thead>
+    <tbody>
+    @Html.DisplayFor(m => m.Ads)
+    </tbody>
+</table>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

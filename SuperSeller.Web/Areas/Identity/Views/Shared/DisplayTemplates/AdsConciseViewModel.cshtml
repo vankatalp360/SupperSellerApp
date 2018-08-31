@@ -1,0 +1,21 @@
+﻿@using SuperSeller.Common.Admin.ViewModels
+@model AdsConciseViewModel
+
+<tr>
+    <td>@Model.Title</td>
+    <td>@Model.Price</td>
+    <td>@Model.Condition</td>
+    <td>@Model.Viewing</td>
+    <td>@Html.DisplayFor(model => model.PromoEnable)</td>
+    <td>
+        <a asp-area="" asp-page="/Ad/Details" asp-route-id="@Model.Id"
+           class="btn btn-default">
+            Details
+        </a>
+        <a asp-area="Identity" asp-controller="Ads" asp-action="Delete" asp-route-id="@Model.Id"
+           class="btn btn-warning">
+            Delete
+        </a>
+    </td>
+</tr>
+

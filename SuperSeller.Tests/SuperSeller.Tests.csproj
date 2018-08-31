@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.App" Version="2.1.3" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="2.1.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.2" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.7.0" />
+    <PackageReference Include="MSTest.TestAdapter" Version="1.2.1" />
+    <PackageReference Include="MSTest.TestFramework" Version="1.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SuperSeller.Common\SuperSeller.Common.csproj" />
+    <ProjectReference Include="..\SuperSeller.Data\SuperSeller.Data.csproj" />
+    <ProjectReference Include="..\SuperSeller.Models\SuperSeller.Models.csproj" />
+    <ProjectReference Include="..\SuperSeller.Services\SuperSeller.Services.csproj" />
+    <ProjectReference Include="..\SuperSeller.Web\SuperSeller.Web.csproj" />
+  </ItemGroup>
+
+</Project>

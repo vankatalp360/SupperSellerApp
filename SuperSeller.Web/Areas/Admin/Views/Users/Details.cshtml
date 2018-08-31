@@ -1,0 +1,36 @@
+﻿@model UserViewModel
+@{
+    ViewData["Title"] = @Model.UserName;
+}
+
+<div style="padding:10px;">
+    @if (@Model.ImagePath != "")
+    {
+        <img src="@Model.ImagePath" alt="Profile Image" width="300px" />
+    }
+</div>
+<div>
+    <h2>@Model.UserName</h2>
+    <p><strong>Email:</strong> @Model.Email</p>
+    <p><strong>Region:</strong> @Model.Region</p>
+    <p><strong>City:</strong> @Model.City</p>
+    <p><strong>Address:</strong> @Model.Address</p>
+    <p><strong>Postal Code:</strong> @Model.PostalCode</p>
+    <p><strong>Register Date:</strong> @Model.RegisteredDate</p>
+    <p><strong>Observed Ads:</strong> @Model.ObservedAds</p>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Condition</th>
+            <th>Viewing</th>
+            <th>PromoEnable</th>
+        </tr>
+    </thead>
+    <tbody>
+        @Html.DisplayFor(m => m.Ads)
+    </tbody>
+</table>
+

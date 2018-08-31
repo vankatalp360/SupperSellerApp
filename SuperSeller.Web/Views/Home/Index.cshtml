@@ -1,0 +1,41 @@
+﻿@model AdsRangeViewModel[]
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<form method="post" class="form-horizontal" enctype="multipart/form-data">
+    <div class="row" style="margin: 15px">
+        <div class="search">
+            <input type="text" class="searchTerm" name="search" placeholder="What are you looking for?">
+            <button type="submit" class="searchButton">
+                <i class="glyphicon glyphicon-search"></i>
+            </button>
+        </div>
+    </div>
+</form>
+
+@for (int r = 0; r <= 10000000; r += 4)
+{
+    <div class="row" style="margin: 20px">
+        @for (int c = r; c < r + 4; c++)
+        {
+            if (c >= Model.Length)
+            {
+                break;
+            }
+            <div class="col-xs-6 col-sm-3">
+                <p>
+                    <a asp-page="/Ad/Details" asp-route-id="@Model[c].Id">
+                        <img src="@Model[c].Image" alt="Alternate Text" style="width: 225px; height: 150px"/>
+                    </a>
+                </p>
+                <span>@Model[c].Title</span>
+                <strong>@Model[c].Price лв.</strong>
+            </div>
+        }
+    </div>
+    if (r >= Model.Length)
+    {
+        break;
+    }
+}

@@ -1,0 +1,21 @@
+﻿@model CategoryConciseViewModel
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.SubCotegoriesCount</td>
+    <td>
+        <a asp-area="Admin" asp-page="/Category/Details" asp-route-id="@Model.Id"
+           class="btn btn-default">
+            Details
+        </a>
+        <a asp-area="Admin" asp-page="/SubCategory/Create" asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            Create SubCategory
+        </a>
+        <a asp-area="Admin" asp-page-handler="Delete" asp-route-id="@Model.Id"
+           class="btn btn-danger">
+            Delete
+        </a>
+    </td>
+</tr>
+

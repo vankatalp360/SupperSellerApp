@@ -1,0 +1,77 @@
+﻿@page "{id:int}"
+@model SuperSeller.Web.Pages.Ad.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        <p>
+            <ul class="list-inline">
+                <li><span class="glyphicon glyphicon-chevron-left"></span></li>
+                <li><a class="btn btn-link" onclick="history.go(-1)">Back</a></li>
+                <li></li>
+                <li></li>
+                <li>@Model.ViewModel.Category.Category.Name</li>
+                <li><span class="glyphicon glyphicon-chevron-right"></span></li>
+                <li>@Model.ViewModel.Category.Name</li>
+            </ul>
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        <img src="@Model.ViewModel.PicturesPaths.First()" alt="Alternate Text" width="750"/>
+    </div>
+    <div class="col-xs-6 col-lg-4">
+        <p style="text-align: center; font-size: 22px; margin: 25px"><strong>@Model.ViewModel.Price лв.</strong></p>
+        <p style="text-align: center; font-size: 22px; margin: 25px">
+            <a href="mailto:@Model.ViewModel.Email" target="_blank" class="btn btn-primary btn-lg"><i style="margin-right: 7px" class="glyphicon glyphicon-envelope"></i>Send Message</a>
+        </p>
+        <p style="text-align: center; font-size: 22px; margin: 25px">
+            <a href="tel:@Model.ViewModel.ContactNumber" target="_blank" class="btn btn-primary btn-lg"><i style="margin-right: 7px" class="glyphicon glyphicon-earphone"></i>@Model.ViewModel.ContactNumber</a>
+        </p>
+        <p style="text-align: center">
+            @Model.ViewModel.CreatorName
+        </p>
+        <p style="text-align: center">
+            <img style="border-radius: 50%" src="@Model.ViewModel.CreatorPicture" alt="Alternate Text" width="200" />
+        </p>
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        <h2>@Model.ViewModel.Title</h2>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        <p>
+            <strong>Region: @Model.ViewModel.Region City: @Model.ViewModel.City</strong>
+            <span style="margin-left: 20px; margin-right: 20px">Added on: @Model.ViewModel.CreateDate</span>
+            <strong>Viewing: @Model.ViewModel.Viewing</strong>
+        </p>
+        <p>
+            Number of Ad: @Model.ViewModel.Id
+        </p>
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        @Model.ViewModel.Description
+        <hr />
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-lg-8">
+        @foreach (var picture in Model.ViewModel.PicturesPaths)
+        {
+            <p>
+                <img src="@picture" alt="Alternate Text" width="750" />
+            </p>
+        }
+    </div>
+</div>

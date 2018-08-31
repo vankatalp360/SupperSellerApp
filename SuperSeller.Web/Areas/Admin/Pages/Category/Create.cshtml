@@ -1,0 +1,19 @@
+﻿@page
+@model SuperSeller.Web.Areas.Admin.Pages.Category.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+<h2>Create Category</h2>
+
+<form method="post" class="form-horizontal">
+    <div class="alert alert-danger" style="display: @TempData["showError"]">
+        @TempData["errorMessage"]
+    </div>
+    @Html.FormGroupFor(model => model.Input.Name)
+    <div class="form-group">
+        <div class="col-sm-10 col-sm-push-2">
+            <input type="submit" value="Create" class="btn btn-success"/>
+            <a onclick= "history.go(-1)" class="btn btn-default">Cancel</a>
+        </div>
+    </div>
+</form>

@@ -1,0 +1,21 @@
+﻿@model SubCategoryConciseViewModel
+
+<tr>
+    <td>@Model.Name</td>
+    <td>@Model.AdsCount</td>
+    <td>
+        <a asp-controller="SubCategory" asp-action="Details" asp-route-id="@Model.Id"
+           class="btn btn-default">
+            Details
+        </a>
+        <a asp-area="Identity" asp-controller="Ad" asp-action="Create" asp-route-id="@Model.Id"
+           class="btn btn-primary">
+            Create Ad
+        </a>
+        <a asp-area="Admin" asp-page="/SubCategory/Delete" asp-route-id="@Model.Id"
+           class="btn btn-danger">
+            Delete
+        </a>
+    </td>
+</tr>
+
