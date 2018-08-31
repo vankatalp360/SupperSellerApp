@@ -78,11 +78,25 @@ namespace SuperSeller.Web
             services.AddSingleton<IEmailSender, SendGridEmailSender>();
             services.Configure<SendGridOptions>(Configuration.GetSection("EmailSettings"));
 
+            services.AddAuthorization(option =>
+            {
+                option.AddPolicy("AdminPagesPolicy", builder => builder.RequireRole("Administrator").Build());
+            });
+
             services.AddAutoMapper();
 
             RegisterServiceLayer(services);
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services
+                .AddMvc(option =>
+                {
+                    option.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                })
+                .AddRazorPagesOptions(option =>
+                {
+                    option.Conventions.AuthorizeAreaFolder("Admin", "/", "AdminPagesPolicy");
+                })
+                .SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
